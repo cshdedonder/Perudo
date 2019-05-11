@@ -1,8 +1,8 @@
 package cshdedonder.perudo.math
 
-open class GenericDistribution(private val pmfMap: Map<Int, Double>) {
+open class GenericDistribution(val pmfMap: Map<Int, Double>) {
 
-    private val cdfMap = pmfMap.mapValues { pmfMap.filterKeys { n -> n <= it.key }.sumValues() }
+    val cdfMap = pmfMap.mapValues { pmfMap.filterKeys { n -> n <= it.key }.sumValues() }
 
     val iteratePMF = pmfMap.entries
     val iterateCDF = cdfMap.entries
